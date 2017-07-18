@@ -1,2 +1,5 @@
 #!/usr/bin/env python
-print 'hello world!'
+from Core import eva
+
+EVA = eva.Eva()
+EVA.initiate()
