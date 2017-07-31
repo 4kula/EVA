@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os, time
+from Modules.misc import Misc as _m
 
 
 class Eva:
@@ -51,6 +52,6 @@ class Eva:
         return
 
     def testing(self):
-        print '(~˘▾˘)~: START - {}'.format(self._this['pid'])
+        _m.say('START - {}'.format(self._this['pid']))
         time.sleep(4)
-        print '(~˘▾˘)~: END - {}'.format(self._this['pid'])
+        _m.say('END - {}'.format(self._this['pid']))
