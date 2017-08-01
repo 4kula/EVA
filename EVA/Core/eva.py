@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os, time
+from multiprocessing import Process
 from Modules.misc import Misc as _m
 
 
@@ -8,6 +9,7 @@ class Eva:
     # designate as property to Mutable Static(s) that are synced across INSTANCES
     _core = {
         '_up' : True,
+        'procs' : []
     }
 
     def get_core(self):
@@ -36,13 +38,16 @@ class Eva:
         """Core function of EVA to listen for input and then act accordingly.
         """
         while (self._core['_up']):
-            #self._input_to_command()
+            cmd = self.input_to_command()
 
-            self.testing()
+            # each command's action will be it's own process
+            p = Process(target=self._input_to_command(), args=())
+            (self._core['procs']).append(p)
+            p.start()
 
         return
 
-    def _input_to_command(self):
+    def input_to_command(self):
         """Get user's input and execute/handle the command async
         """
         usrInput = raw_input('(~˘▾˘)~: ')
@@ -50,6 +55,8 @@ class Eva:
             self._core['_up'] = False
         print usrInput
         return
+
+    def
 
     def testing(self):
         _m.say('START - {}'.format(self._this['pid']))
