@@ -13,6 +13,18 @@ class Archive:
     }
 
     @staticmethod
+    def raw(query):
+        """Runs the raw query
+        """
+        # Connecting to the database file
+        conn = sqlite3.connect(Archive._this['source'])
+        c = conn.cursor()
+        c.execute(query)
+        result = c.fetchall()
+        conn.close()
+        return result
+
+    @staticmethod
     def run_query(query):
         """Runs the query
         """
