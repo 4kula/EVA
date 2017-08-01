@@ -3,6 +3,7 @@
 import os, time
 from multiprocessing import Process
 from Modules.misc import Misc as _m
+from Modules.archive import Archive as _a
 
 
 class Eva:
@@ -37,13 +38,15 @@ class Eva:
     def initiate(self):
         """Core function of EVA to listen for input and then act accordingly.
         """
-        while (self._core['_up']):
-            cmd = self.input_to_command()
+#        while (self._core['_up']):
+#            cmd = self.input_to_command()
+#
+#            # each command's action will be it's own process
+#            p = Process(target=self._input_to_command(), args=())
+#            (self._core['procs']).append(p)
+#            p.start()
 
-            # each command's action will be it's own process
-            p = Process(target=self._input_to_command(), args=())
-            (self._core['procs']).append(p)
-            p.start()
+        _a.test()
 
         return
 
@@ -55,8 +58,6 @@ class Eva:
             self._core['_up'] = False
         print usrInput
         return
-
-    def
 
     def testing(self):
         _m.say('START - {}'.format(self._this['pid']))
