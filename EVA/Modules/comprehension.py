@@ -5,7 +5,7 @@ from Misc as _m
 
 # from simple command mappings to understanding data and taking action
 class Comprehension:
-    # container for variable that is SUPPOSED to be instanced
+    # container for variable that CAN be instanced
     _this = {}
 
     def __init__(self):
