@@ -44,3 +44,4 @@ MANIFEST
 # MISC
 .DS_Store
 EVA/Storage/*
+.vscode
